@@ -24,6 +24,13 @@ def post_and_redirect():
     return redirect(url_for('/'))
 
 
+@app.route('/get', methods=['GET'])
+def get_something():
+    return 'OK'
+
+
+
+
 ########################################
 # For ajax
 ########################################
@@ -74,7 +81,7 @@ def xhr_post_json():
 def main():
     app.logger.setLevel(logging.DEBUG)
     app.secret_key = "secret"
-    app.run(debug = True)
+    app.run(debug = True, port=8001, host='0.0.0.0')
     
 if __name__ == '__main__':
     main()
